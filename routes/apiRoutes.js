@@ -19,14 +19,15 @@ router.get('/playlists', async (req, res) => {
     res.json(playlist);
   } catch (err) {
     console.error(err);
-    res.error('Server error');
+    res.json('Server error');
   }
 });
 
 router.post("/playlists", async (req, res) => {
+  console.info(req.body)
   try {
     const play = await db.Playlist.create({
-      playlist_id: req.body.playlist_id,
+      //playlist_id: req.body.playlist_id,
       playlist_name: req.body.playlist_name,
       number_of_followers: req.body.number_of_followers,
       user_id: req.body.user_id,
@@ -36,7 +37,7 @@ router.post("/playlists", async (req, res) => {
     res.json(play);
   } catch (err) {
     console.error(err);
-    res.error("Server error");
+    //res.json("Server error");
   }
 });
 
@@ -50,7 +51,7 @@ router.get('/playlists/:playlist_id', async (req, res) => {
     res.json(playlist);
   } catch (err) {
     console.error(err);
-    res.error('Server error');
+    res.json('Server error');
   }
 });
 
@@ -64,7 +65,7 @@ router.delete('/playlists/:playlist_id', async (req, res) => {
     res.send('Successfully Deleted');
   } catch (err) {
     console.error(err);
-    response.error('Server error');
+    res.json('Server error');
   }
 });
 
@@ -74,7 +75,7 @@ router.put('/playlists', async (req, res) => {
     // N.B. - this is a good example of where to use code validation to confirm objects
     await db.Playlist.update(
       {
-        playlist_id: req.body.playlist_id,
+        //playlist_id: req.body.playlist_id,
         playlist_name: req.body.playlist_name,
         number_of_followers: req.body.number_of_followers,
         user_id: req.body.user_id,
@@ -90,7 +91,7 @@ router.put('/playlists', async (req, res) => {
     res.send('Successfully Updated');
   } catch (err) {
     console.error(err);
-    res.error('Server error');
+    res.json('Server error');
   }
 });
 
@@ -103,7 +104,7 @@ router.get('/songs', async (req, res) => {
     res.send(songs);
   } catch (err) {
     console.error(err);
-    res.error('Server error');
+    res.json('Server error');
   }
 });
 
@@ -120,7 +121,7 @@ router.post("/songs", async (req, res) => {
     res.json(song);
   } catch (err) {
     console.error(err);
-    res.error("Server error");
+    res.json("Server error");
   }
 });
 
@@ -134,7 +135,7 @@ router.get('/songs/:song_id', async (req, res) => {
     res.json(playlists);
   } catch (err) {
     console.error(err);
-    res.error('Server error');
+    res.json('Server error');
   }
 });
 
@@ -148,7 +149,7 @@ router.delete('/songs/:song_id', async (req, res) => {
     res.send('Successfully Deleted');
   } catch (err) {
     console.error(err);
-    response.error('Server error');
+    res.json('Server error');
   }
 });
 
@@ -173,7 +174,7 @@ router.put('/songs', async (req, res) => {
     res.send('Successfully Updated');
   } catch (err) {
     console.error(err);
-    res.error('Server error');
+    res.json('Server error');
   }
 });
 
@@ -186,7 +187,7 @@ router.get('/playlistDetails', async (req, res) => {
     res.json(pDetails);
   } catch (err) {
     console.error(err);
-    res.error('Server error');
+    res.json('Server error');
   }
 });
 
@@ -204,7 +205,7 @@ router.post("/playlistDetails", async (req, res) => {
     res.json(playlistd);
   } catch (err) {
     console.error(err);
-    res.error("Server error");
+    res.json("Server error");
   }
 });
 
@@ -218,7 +219,7 @@ router.delete('/playlistDetails/:playlist_details_id', async (req, res) => {
     res.send('Successfully Deleted');
   } catch (err) {
     console.error(err);
-    response.error('Server error');
+    res.json('Server error');
   }
 });
 
@@ -232,7 +233,7 @@ router.get('/playlistDetails/:playlist_details_id', async (req, res) => {
     res.json(pDetails);
   } catch (err) {
     console.error(err);
-    res.error('Server error');
+    res.json('Server error');
   }
 });
 
@@ -257,7 +258,7 @@ router.put('/playlistDetails', async (req, res) => {
     res.send('Successfully Updated');
   } catch (err) {
     console.error(err);
-    res.error('Server error');
+    res.json('Server error');
   }
 });
 
