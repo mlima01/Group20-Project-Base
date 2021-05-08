@@ -61,6 +61,8 @@ There are no prewritten tests in the source repository, but you can use Cypress 
 ### Bugs:
 - There may be null values in the data that may need to be handled. 
 - The playlist page search does not reveal the table until something is placed in the search bar.
+- The 'update playlist' page does not successfully update a playlist since there is a need for multiple foreign keys and we were not able to work around it.
+- The 'create playlist' page does not successfully create a new playlist record. The data was not able to be sent to the database. Given the knowledge we currently have about Sequelize, we were unable to effectively troubleshoot and solve this issue.
 
 ### Future Development: 
 * Handle null values.
