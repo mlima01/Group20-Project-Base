@@ -20,21 +20,23 @@ async function getPlaylistDetails(pname){
     
     document.querySelector('#details').innerHTML = `${item[0]['playlist_id']} `
 
+
     form.addEventListener('submit', async(event)=> {
         event.preventDefault();
         console.info('submitted form', event.target);
-        const post = await fetch('/api/playlistDetails',{
+        const post = await fetch('/api/playlistDetails',
+        {
             method: 'POST',
             headers:{
                 'Content-Type':'application/json'
             },
             body: JSON.stringify({ 
                 // playlist_details_id: pdid.value,
-                FK_song_id: sid.value,
-                song_title: stitle.value,
-                artist_id: aid.value,
-                song_duration: sdur.value,
-                FK_playlist_id: plid.value})
+                'FK_song_id': Number(sid.value),
+                'song_title': stitle.value,
+                'artist_id': Number(aid.value),
+                'song_duration': sdur.value,
+                'FK_playlist_id': Number(plid.value)})
         });
     });
 
