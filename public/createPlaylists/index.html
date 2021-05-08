@@ -21,7 +21,7 @@
     <div class= 'container has-text-centered'>
     <div class= 'box has-text-centered'>
         <div class='form'>
-            <form action='/api/playlists' method='post' class='speaker-form' >
+            <form id="create" action='/api/playlists' method='POST' class='speaker-form' >
                 <ul class="flex-outer">
                     <li>
                         <label for="namePlaylist">Name your Playlist</label>
@@ -41,8 +41,8 @@
                         <input name="followers" type="text" id="followers">
                     </li>
                     <li>
-                        <label for="songDuration">Playlist duration</label>
-                        <input name="songDuration" type="text" id="songDuration">
+                        <label for="totalTime">Playlist duration</label>
+                        <input name="totalTime" type="text" id="totalTime">
                     </li>
                     
                     <li>
@@ -59,10 +59,11 @@
                             </ul>
                         </label>
                     </li>
-                    <li>
-                        <button class= "button is-dark is-small" name="submit" id="submit" type="submit">SUBMIT</button>
-                    </li>
+                    
                 </ul>
+                <div class="submit">
+                    <button class="button is-dark" id="submit" name="submit" type="submit">Submit</button>
+                </div>
             </form>
         </div>
     </div>
